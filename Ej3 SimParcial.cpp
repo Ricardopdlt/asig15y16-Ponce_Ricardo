@@ -12,39 +12,52 @@ int main()
 	float e;
 	int i;
 	int z;
+	int n1;
 
 	e = 0;
 	i = 1;
 	z = 1;
 
-	printf("Ingrese el numero de terminos de la serie: ");
-	cin >> k;
 
-	if (k > 0 && k <= 20)
+	printf("La serie e^a es 1 + a + a^2/2! + a^3/3! + ......");
+
+	do
 	{
-		printf("Ingrese el valor de a: ");
-		cin >> a;
+		printf("Ingrese el numero de terminos de la serie: ");
+		cin >> k;
 
-		while (i <= k)
+		if (k > 0 && k <= 20)
 		{
-			if (i == 1)
-			{
-				e = 1;
-				i++;
-				continue;
-			}
-			z = z * (i - 1);
-			e = e + (pow(a, i - 1) / z);
-			i++;
-		}
-		cout << "e^a = " << e;
+			printf("Ingrese el valor de a: ");
+			cin >> a;
 
-	}
-	else
-	{
-		printf("ERROR! \n");
-		printf("Ingrese un numero de terminos en el rango de 1 a 20 ");
-	}
+			while (i <= k)
+			{
+				if (i == 1)
+				{
+					e = 1;
+					i++;
+					continue;
+				}
+				z = z * (i - 1);
+				e = e + (pow(a, i - 1) / z);
+				i++;
+			}
+			cout << "e^a = " << e;
+
+			_getch();
+			return 0;
+
+		}
+		else
+		{
+			printf("ERROR! \n");
+			printf("Ingrese un numero de terminos en el rango de 1 a 20 \n");
+			cout << endl;
+			n1 = 1;
+		}
+	} 
+	while (n1 == 1);
 
 	_getch();
 }
