@@ -15,6 +15,9 @@ int main()
 	int i;
 	i = 1;
 
+
+	printf("La serie es M = 1/a + 1/4a + 1/8a......");
+
 	do
 	{
 		printf("Ingrese la cantidad de numeros a sumar: ");
