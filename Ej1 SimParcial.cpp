@@ -1,3 +1,5 @@
+//Ej1 SimParcial
+
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
@@ -7,6 +9,8 @@ using namespace std;
 
 int main()
 {
+	//entrada
+	
 	int n;
 	float a;
 	int n1;
@@ -15,6 +19,7 @@ int main()
 	int i;
 	i = 1;
 
+	//logica
 
 	printf("La serie es M = 1/a + 1/4a + 1/8a......");
 
@@ -44,7 +49,7 @@ int main()
 						i++;
 					}
 					cout << endl;
-					cout << "M = " << suma << endl;
+					cout << "M = " << suma << endl;  //salida
 
 					_getch();
 					return 0;

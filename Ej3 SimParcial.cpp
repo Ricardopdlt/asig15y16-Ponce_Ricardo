@@ -1,3 +1,5 @@
+//Ej3 SimParcial
+
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
@@ -7,6 +9,8 @@ using namespace std;
 
 int main()
 {
+	//entrada
+
 	int k;
 	float a;
 	float e;
@@ -18,6 +22,7 @@ int main()
 	i = 1;
 	z = 1;
 
+	//logica
 
 	printf("La serie e^a es 1 + a + a^2/2! + a^3/3! + ......");
 
@@ -43,7 +48,7 @@ int main()
 				e = e + (pow(a, i - 1) / z);
 				i++;
 			}
-			cout << "e^a = " << e;
+			cout << "e^a = " << e;   //salida
 
 			_getch();
 			return 0;

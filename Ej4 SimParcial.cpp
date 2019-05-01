@@ -1,3 +1,5 @@
+//Ej4 Sim Parcial
+
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
@@ -7,6 +9,8 @@ using namespace std;
 
 int main()
 {
+	//entrada
+
 	float a;
 	int n;
 	int i;
@@ -16,7 +20,9 @@ int main()
 
 	suma = 0;
 	i = 1;
-	   
+	
+	//logica
+
 	printf("La serie es suma = a/2 - 3(a^2)/4 + 5(a^4)/6 +...(-1)^(n+1)*(2n-1)*a^2^(n-1)/2n  \n");
 	
 	do
@@ -39,7 +45,7 @@ int main()
 						i++;
 					}
 
-					printf("Suma: ");
+					printf("Suma: ");  //salida
 					cout << suma;
 
 					_getch();

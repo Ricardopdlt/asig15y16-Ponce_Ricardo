@@ -1,3 +1,5 @@
+//Ej2 SimParcial
+
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
@@ -7,7 +9,7 @@ using namespace std;
 
 int main()
 {
-	//Entrada
+	//entrada
 
 	char lugar; //lugar de ingreso
 	char disp; //dispositivo
@@ -31,136 +33,140 @@ int main()
 	int sumCo = 0;
 
 
-	//Lógica
+	//logica
 
-	while (1)
+	while (lugar != toupper('G'))
 	{
-		
-			cout << "--------------------------- \n";
-			cout << endl;
-			cout << "Lugar Ingreso [A: Lima, B: Otra region o C: Otro pais]: ";
 
-			cin >> lugar;
+		cout << "--------------------------- \n";
+		cout << endl;
+		cout << "Lugar Ingreso [A: Lima, B: Otra region o C: Otro pais]: ";
 
-			if (toupper(lugar) == 'G')
+		cin >> lugar;
+
+		if (toupper(lugar) == 'G')
+		{
+			break;
+		}
+
+
+		switch (toupper(lugar))
+
+		{
+		case 'A':
+
+			sumA++;
+			break;
+
+		case 'B':
+
+			sumB++;
+			break;
+
+		case 'C':
+
+			sumC++;
+			break;
+
+		default:
+
+			cout << "ERROR \n";
+			cout << "Por favor ingrese un lugar de ingreso correcto. \n";
+
+			_getch();
+			return 0;
+
+		}
+
+
+
+
+
+		cout << "Hora de ingreso: ";
+
+		cin >> hora;
+
+		if (hora >= 0 && hora <= 5)
+		{
+			sumMad++;
+		}
+
+		else
+		{
+
+			if (hora >= 6 && hora <= 12)
 			{
-				break;
-			}
-
-
-			switch (lugar)
-
-			{
-			case 'A':
-
-				sumA++;
-				break;
-
-			case 'B':
-
-				sumB++;
-				break;
-
-			case 'C':
-
-				sumC++;
-				break;
-
-			default:
-
-				cout << "Por favor ingrese un lugar de ingreso correcto. \n";
-				return 1;
-				break;
-			}
-		
-
-
-		
-			cout << "Hora de ingreso: ";
-
-			cin >> hora;
-
-			if (hora >= 0 && hora <= 5)
-			{
-				sumMad++;
+				sumMan++;
 			}
 
 			else
 			{
 
-				if (hora >= 6 && hora <= 12)
+				if (hora >= 13 && hora <= 17)
 				{
-					sumMan++;
+					sumTar++;
 				}
 
 				else
 				{
 
-					if (hora >= 13 && hora <= 17)
+					if (hora >= 18 && hora <= 23)
 					{
-						sumTar++;
+						sumNoc++;
 					}
 
 					else
 					{
+						cout << "Por favor ingrese una hora dentro del rango 0-23 \n";
 
-						if (hora >= 18 && hora <= 23)
-						{
-							sumNoc++;
-						}
-
-						else
-						{
-							cout << "Por favor ingrese una hora dentro del rango 0-23 \n";
-
-							_getch();
-							return 1;
-							break;
-						}
-
+						_getch();
+						return 0;
 					}
 
 				}
 
 			}
-		
+
+		}
 
 
-			cout << "Tipo Dispositivo [C: Celular, T: Tablet o U: Computador]: ";
 
-			cin >> disp;
-			cout << endl;
-			
-			switch (disp)
+		cout << "Tipo Dispositivo [C: Celular, T: Tablet o U: Computador]: ";
 
-			{
-			case 'C':
+		cin >> disp;
+		cout << endl;
 
-				sumCe++;
-				break;
+		switch (toupper(disp))
 
-			case 'T':
+		{
+		case 'C':
 
-				sumTa++;
-				break;
+			sumCe++;
+			break;
 
-			case 'U':
+		case 'T':
 
-				sumCo++;
-				break;				
+			sumTa++;
+			break;
 
-			default:
+		case 'U':
 
-				cout << "Por favor ingrese un tipo de dispositivo correcto. \n";
+			sumCo++;
+			break;
 
-				_getch();
-				return 0;
-				break;
-			}
-		
+		default:
+
+			cout << "Por favor ingrese un tipo de dispositivo correcto. \n";
+
+			_getch();
+			return 0;
+		}
+
 
 	}
 
+
+	//salida 
 
 	cout << "************************************" << endl;
 
