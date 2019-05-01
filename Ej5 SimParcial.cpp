@@ -21,8 +21,8 @@ int main()
 
 	do
 	{
-	    cout << "Ingrese la longitud del lado del cuadrado (mayor a 0 y menor a 10): ";
-	    cin >> l;
+		cout << "Ingrese la longitud del lado del cuadrado (mayor a 0 y menor a 10): ";
+		cin >> l;
 
 		if (l > 0 && l < 10)
 		{
@@ -32,7 +32,7 @@ int main()
 				for (e = 1; e <= l; e++)
 				{
 
-					if (e == 1 || e == l || i == 1 || i == l)
+					if (e == 1 || e == l || i == e || i == 1 || i == l)
 					{
 						cout << "* ";
 					}
