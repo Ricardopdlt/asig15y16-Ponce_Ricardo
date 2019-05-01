@@ -14,9 +14,6 @@ int main()
 	char lugar; //lugar de ingreso
 	char disp; //dispositivo
 	int hora; //hora de ingreso
-	int n1;
-	int n2;
-	int n3;
 
 
 	int sumA = 0;
