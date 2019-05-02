@@ -7,14 +7,12 @@
 using namespace System;
 using namespace std;
 
+
 int main()
 {
-	//entrada
-
-	char lugar; //lugar de ingreso
-	char disp; //dispositivo
-	int hora; //hora de ingreso
-
+	char lugar; // lugar de ingreso
+	char disp; // dispositivo
+	int h; //hora
 
 	int sumA = 0;
 	int sumB = 0;
@@ -25,149 +23,146 @@ int main()
 	int sumTar = 0;
 	int sumNoc = 0;
 
-	int sumCe = 0;
-	int sumTa = 0;
-	int sumCo = 0;
+	int sumCel;
+	int sumTab;
+	int sumCom;
 
+	int n1;
 
-	//logica
+	sumCel = 0;
+	sumTab = 0;
+	sumCom = 0;
 
-	while (lugar != toupper('G'))
+	do
 	{
-
-		cout << "--------------------------- \n";
+		cout << "-------------------------------------------------------------------------------- \n";
 		cout << endl;
-		cout << "Lugar Ingreso [A: Lima, B: Otra region o C: Otro pais]: ";
-
+		printf("Ingrese el lugar de ingreso (L: Lima, B: Otra region, C: Otro pais): ");
 		cin >> lugar;
 
 		if (toupper(lugar) == 'G')
 		{
-			break;
+			n1 = 2;
 		}
-
-
-		switch (toupper(lugar))
-
+		if (toupper(lugar) != 'G')
 		{
-		case 'A':
-
-			sumA++;
-			break;
-
-		case 'B':
-
-			sumB++;
-			break;
-
-		case 'C':
-
-			sumC++;
-			break;
-
-		default:
-
-			cout << "ERROR \n";
-			cout << "Por favor ingrese un lugar de ingreso correcto. \n";
-
-			_getch();
-			return 0;
-
-		}
-
-
-
-
-
-		cout << "Hora de ingreso: ";
-
-		cin >> hora;
-
-		if (hora >= 0 && hora <= 5)
-		{
-			sumMad++;
-		}
-
-		else
-		{
-
-			if (hora >= 6 && hora <= 12)
+			if (toupper(lugar) == 'A' || toupper(lugar) == 'B' || toupper(lugar) == 'C')
 			{
-				sumMan++;
-			}
-
-			else
-			{
-
-				if (hora >= 13 && hora <= 17)
+				switch (toupper(lugar))
 				{
-					sumTar++;
+
+				case 'A':
+
+					sumA++;
+					n1 = 3;
+
+				case 'B':
+
+					sumB++;
+					n1 = 3;
+
+				case 'C':
+
+					sumC++;
+					n1 = 3;
+
 				}
 
-				else
+				do
 				{
+					printf("Ingrese la hora de ingreso: ");
+					cin >> h;
 
-					if (hora >= 18 && hora <= 23)
+					if (h > 0 && h < 24)
 					{
-						sumNoc++;
-					}
+						if (h >= 0 && h <= 5)
+						{
+							sumMad++;
+							n1 = 4;
+						}
+						if (h >= 6 && h <= 12)
+						{
+							sumMan++;
+							n1 = 4;
+						}
+						if (h >= 13 && h <= 17)
+						{
+							sumTar++;
+							n1 = 4;
+						}
+						if (h >= 18 && h <= 23)
+						{
+							sumNoc++;
+							n1 = 4;
+						}
 
+						do
+						{
+							printf("Ingrese el tipo de dispositivo (C: Celular, T: Tablet, U: Computador): ");
+							cin >> disp;
+							cout << endl;
+
+							if (toupper(disp) == 'C' || toupper(disp) == 'T' || toupper(disp) == 'U')
+							{
+								if (toupper(disp) == 'C')
+								{
+									sumCel++;
+								}
+								if (toupper(disp) == 'T')
+								{
+									sumTab++;
+								}
+								if (toupper(disp) == 'U')
+								{
+									sumCom++;
+								}
+
+								n1 = 1;
+
+
+							}
+							else
+							{
+								cout << endl;
+								cout << "ERROR \n";
+								cout << "Ingrese uno de los dispositivos propuestos \n";
+								cout << endl;
+								n1 = 4;
+							}
+
+
+						} while (n1 == 4);
+
+
+					}
 					else
 					{
-						cout << "Por favor ingrese una hora dentro del rango 0-23 \n";
-
-						_getch();
-						return 0;
+						cout << endl;
+						cout << "ERROR \n";
+						cout << "Ingrese una hora en el rango de 0 a 23 \n";
+						cout << endl;
+						n1 = 3;
 					}
-
-				}
-
+				} while (n1 == 3);
 			}
-
+			else
+			{
+				cout << endl;
+				cout << "ERROR \n";
+				cout << "Ingrese uno de los lugares de ingreso propuestos \n";
+				cout << endl;
+				n1 = 1;
+			}
 		}
 
 
+	} while (n1 == 1);
 
-		cout << "Tipo Dispositivo [C: Celular, T: Tablet o U: Computador]: ";
+	cout << endl;
 
-		cin >> disp;
-		cout << endl;
+	cout << "Los resultados son: \n";
 
-		switch (toupper(disp))
-
-		{
-		case 'C':
-
-			sumCe++;
-			break;
-
-		case 'T':
-
-			sumTa++;
-			break;
-
-		case 'U':
-
-			sumCo++;
-			break;
-
-		default:
-
-			cout << "Por favor ingrese un tipo de dispositivo correcto. \n";
-
-			_getch();
-			return 0;
-		}
-
-
-	}
-
-
-	//salida 
-
-	cout << "************************************" << endl;
-
-	cout << "Lugar ingreso " << endl;
+	cout << "----------------------------------------------- \n";
 
 	cout << "Lima: " << sumA << endl;
 
@@ -176,30 +171,46 @@ int main()
 	cout << "Otro pais: " << sumC << endl;
 
 
+	if (sumMad >= sumMan && sumMad >= sumTar && sumMad >= sumNoc)
+	{
+		cout << "En la MADRUGADA se produjeron mas ingresos" << endl;
+	}
 
-	cout << "************************************" << endl;
+	if (sumMan >= sumMad && sumMad >= sumTar && sumMan >= sumNoc)
+	{
+		cout << "En la MANIANA se produjeron mas ingresos" << endl;
+	}
 
-	cout << "Hora de ingreso " << endl;
+	if (sumTar >= sumMad && sumTar >= sumMan && sumTar >= sumNoc)
+	{
+		cout << "En la TARDE se produjeron mas ingresos" << endl;
+	}
 
-	cout << "Madrugada: " << sumMad << endl;
-
-	cout << "Manana: " << sumMan << endl;
-
-	cout << "Tarde: " << sumTar << endl;
-
-	cout << "Noche: " << sumNoc << endl;
+	if (sumNoc >= sumMad && sumNoc >= sumMan && sumNoc >= sumTar)
+	{
+		cout << "En la NOCHE se produjeron mas ingresos" << endl;
+	}
 
 
+	if (sumCel > sumTab && sumCel > sumCom)
+	{
+		cout << "Predominan los ingresos por Celular";
+	}
+	if (sumCel == sumTab && sumCel == sumCom)
+	{
+		cout << "Predominan todos los dispositivos utilizados para ingresos";
+	}
 
-	cout << "************************************" << endl;
+	if (sumTab > sumCel && sumTab > sumCom)
+	{
+		cout << "Predominan los ingresos por Tableta";
+	}
 
-	cout << "Tipo de dispositivo " << endl;
+	if (sumCom > sumCel && sumCom > sumTab)
+	{
+		cout << "Predominan los ingresos por Computadora";
+	}
 
-	cout << "Celular: " << sumCe << endl;
-
-	cout << "Tablet: " << sumTa << endl;
-
-	cout << "Computador: " << sumCo << endl;
 
 
 	_getch();
