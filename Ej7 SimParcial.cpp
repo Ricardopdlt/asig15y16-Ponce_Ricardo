@@ -1,21 +1,19 @@
-//Ej7 SimParcial
+//Ej2 SimParcial
 
 #include <iostream>
-#include <conio.h>
 #include <stdio.h>
+#include <conio.h>
 
 using namespace System;
 using namespace std;
 
 
 int main()
-
 {
-	// entrada
-	char tipo; //tipo de noticia
-	int h; //hora de publicacion de la noticia
+	char tipo; // tipo de noticia
 	char orig; //origen de la noticia
-	
+	int h; //hora
+
 	int sumD = 0;
 	int sumA = 0;
 	int sumE = 0;
@@ -25,125 +23,134 @@ int main()
 	int sumTar = 0;
 	int sumNoc = 0;
 
-	int sumNac = 0;
-	int sumExt = 0;
+	int sumNac;
+	int sumExt;
 
+	int n1;
 
-	while (tipo != 'X')
+	sumNac = 0;
+	sumExt = 0;
 
+	do
 	{
-		cout << "--------------------------- \n";
+		cout << "-------------------------------------------------------------------------------- \n";
 		cout << endl;
-		printf("Tipo de noticia (D: Deportes, A: Actualidad, E: Entretenimiento): ");
-		cin >> tipo;
+		printf("Ingrese el tipo de noticia (D: Deportes, A: Actualidad, E: Entretenimiento): ");
+		cin >> lugar;
 
-		if (toupper(tipo) == 'X')
+		if (toupper(lugar) == 'X')
 		{
-			break;
+			n1 = 2;
 		}
-		switch (toupper (tipo))
-
+		if (toupper(lugar) != 'X')
 		{
-		case 'D':
-
-			sumD++;
-			break;
-
-		case 'A':
-
-			sumA++;
-			break;
-
-		case 'E':
-
-			sumE++;
-			break;
-
-		default:
-
-			cout << "ERROR \n";
-			cout << "Por favor ingrese un tipo de noticia correcto. \n";
-
-			_getch();
-			return 0;
-
-		}
-
-		if (tipo != 'X')
-
-		{
-
-			printf("Hora de publicacion: ");
-			cin >> h;
-
-			if (h >= 0 && h <= 23)
+			if (toupper(lugar) == 'D' || toupper(lugar) == 'A' || toupper(lugar) == 'E')
 			{
-
-				if (h >= 0 && h <= 5)
+				switch (toupper(lugar))
 				{
-					sumMad++;
+
+				case 'D':
+
+					sumD++;
+					n1 = 3;
+
+				case 'A':
+
+					sumA++;
+					n1 = 3;
+
+				case 'E':
+
+					sumE++;
+					n1 = 3;
+
 				}
 
-				if (h >= 6 && h <= 12)
+				do
 				{
-					sumMan++;
-				}
+					printf("Ingrese la hora de publicacion de la noticia: ");
+					cin >> h;
 
-				if (h >= 13 && h<= 17)
-				{
-					sumTar++;
-				}
+					if (h > 0 && h < 24)
+					{
+						if (h >= 0 && h <= 5)
+						{
+							sumMad++;
+							n1 = 4;
+						}
+						if (h >= 6 && h <= 12)
+						{
+							sumMan++;
+							n1 = 4;
+						}
+						if (h >= 13 && h <= 17)
+						{
+							sumTar++;
+							n1 = 4;
+						}
+						if (h >= 18 && h <= 23)
+						{
+							sumNoc++;
+							n1 = 4;
+						}
 
-				if (h >= 18 && h <= 23)
-				{
-					sumNoc++;
-				}
+						do
+						{
+							printf("Ingrese el origen de la noticia (N: Nacional, E: Extranjera): ");
+							cin >> orig;
+							cout << endl;
 
+							if (toupper(disp) == 'N' || toupper(disp) == 'E')
+							{
+								if (toupper(disp) == 'N')
+								{
+									sumNac++;
+								}
+								if (toupper(disp) == 'E')
+								{
+									sumExt++;
+								}
+							
+								n1 = 1;
+
+
+							}
+							else
+							{
+								cout << endl;
+								cout << "ERROR \n";
+								cout << "Ingrese uno de los origenes propuestos \n";
+								cout << endl;
+								n1 = 4;
+							}
+
+
+						} while (n1 == 4);
+
+
+					}
+					else
+					{
+						cout << endl;
+						cout << "ERROR \n";
+						cout << "Ingrese una hora en el rango de 0 a 23 \n";
+						cout << endl;
+						n1 = 3;
+					}
+				} while (n1 == 3);
 			}
 			else
 			{
+				cout << endl;
 				cout << "ERROR \n";
-				cout << "Por favor ingrese una hora dentro del rango 0-23 \n";
-
-				_getch();
-				return 0;
+				cout << "Ingrese uno de los tipos de noticias propuestos \n";
+				cout << endl;
+				n1 = 1;
 			}
-
-			printf("Origen de la noticia (N: Nacional, E: Extranjero): ");
-			cin >> orig;
-			cout << endl;
-
-			switch (toupper(orig))
-
-			{
-			case 'N':
-
-				sumNac++;
-				break;
-
-			case 'E':
-
-				sumExt++;
-				break;
-
-			default:
-
-				cout << "ERROR \n";
-				cout << "Por favor ingrese un origen de la noticia correcto. \n";
-
-				_getch();
-				return 0;
-			}
-
 		}
 
-		else
 
-		{
-			exit;
-		}
-
-	}
+	} while (n1 == 1);
 
 	cout << endl;
 
@@ -155,7 +162,7 @@ int main()
 
 	cout << "Noticias de Actualidad: " << sumA << endl;
 
-	cout << "Noticias de Entretenimiento: " << sumE << endl;
+	cout << "Noticias de Entrenimiento: " << sumE << endl;
 
 
 	if (sumMad >= sumMan && sumMad >= sumTar && sumMad >= sumNoc)
@@ -179,22 +186,20 @@ int main()
 	}
 
 
-	if ( sumNac < sumExt)
+	if (sumExt > sumNac)
 	{
 		cout << "Predominan las noticias del Extranjero";
 	}
-	else
+	if (sumExt == sumNac)
+		cout << "Predominan ambas noticias";
+	}
 
-		if (sumNac == sumExt)
-		{
-			cout << "Predominan ambas noticias";
-		}
+	if (sumNac > sumExt)
+	{
+		cout << "Predominan las noticias Nacionales";
+	}
 
-		else
-		{
-			cout << "Predominan las noticias Nacionales";
-		}
+
 
 	_getch();
-
 }
