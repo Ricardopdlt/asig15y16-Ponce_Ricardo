@@ -21,7 +21,7 @@ int main()
 
 	//logica
 
-	printf("La serie es M = 1/a + 1/4a + 1/8a......");
+	printf("La serie es M = 1/a + 1/4a + 1/8a......\n");
 
 	do
 	{
