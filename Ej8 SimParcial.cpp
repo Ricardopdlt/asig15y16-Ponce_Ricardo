@@ -46,25 +46,22 @@ int main()
 		{
 			if (toupper(emer) == 'E' || toupper(emer) == 'S' || toupper(emer) == 'R')
 			{
-				switch (toupper(emer))
+				if(toupper(emer)=='E')
 				{
-
-				case 'E':
-
 					sumEc++;
 					n1 = 3;
-
-				case 'S':
-
+				}
+				if (toupper(emer) == 'S')
+				{
 					sumSa++;
 					n1 = 3;
-
-				case 'R':
-
+				}
+				if (toupper(emer) == 'R')
+				{
 					sumRa++;
 					n1 = 3;
-
 				}
+
 
 				do
 				{
