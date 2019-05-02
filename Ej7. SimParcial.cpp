@@ -1,4 +1,4 @@
-//Ej2 SimParcial
+//Ej7 SimParcial
 
 #include <iostream>
 #include <stdio.h>
@@ -10,9 +10,9 @@ using namespace std;
 
 int main()
 {
-	char tipo; // tipo de noticia
-	char orig; //origen de la noticia
-	int h; //hora
+	char tip; //tipo de noticia
+	int h; //hora de la publicacion de la noticia
+	char ori; //origen de la noticia
 
 	int sumD = 0;
 	int sumA = 0;
@@ -36,39 +36,38 @@ int main()
 		cout << "-------------------------------------------------------------------------------- \n";
 		cout << endl;
 		printf("Ingrese el tipo de noticia (D: Deportes, A: Actualidad, E: Entretenimiento): ");
-		cin >> lugar;
+		cin >> tip;
 
-		if (toupper(lugar) == 'X')
+		if (toupper(tip) == 'X')
 		{
 			n1 = 2;
 		}
-		if (toupper(lugar) != 'X')
+		if (toupper(tip) != 'X')
 		{
-			if (toupper(lugar) == 'D' || toupper(lugar) == 'A' || toupper(lugar) == 'E')
+			if (toupper(tip) == 'D' || toupper(tip) == 'A' || toupper(tip) == 'E')
 			{
-				switch (toupper(lugar))
+				if (toupper(tip) == 'D')
 				{
-
-				case 'D':
-
 					sumD++;
 					n1 = 3;
+				}
 
-				case 'A':
-
+				if (toupper(tip) == 'A')
+				{
 					sumA++;
 					n1 = 3;
+				}
 
-				case 'E':
-
+				if (toupper(tip) == 'E')
+				{
 					sumE++;
 					n1 = 3;
-
 				}
+
 
 				do
 				{
-					printf("Ingrese la hora de publicacion de la noticia: ");
+					printf("Ingrese la hora se publico la noticia: ");
 					cin >> h;
 
 					if (h > 0 && h < 24)
@@ -97,20 +96,20 @@ int main()
 						do
 						{
 							printf("Ingrese el origen de la noticia (N: Nacional, E: Extranjera): ");
-							cin >> orig;
+							cin >> ori;
 							cout << endl;
 
-							if (toupper(disp) == 'N' || toupper(disp) == 'E')
+							if (toupper(ori) == 'N' || toupper(ori) == 'E')
 							{
-								if (toupper(disp) == 'N')
+								if (toupper(ori) == 'N')
 								{
 									sumNac++;
 								}
-								if (toupper(disp) == 'E')
+								if (toupper(ori) == 'E')
 								{
 									sumExt++;
 								}
-							
+
 								n1 = 1;
 
 
@@ -143,7 +142,7 @@ int main()
 			{
 				cout << endl;
 				cout << "ERROR \n";
-				cout << "Ingrese uno de los tipos de noticias propuestos \n";
+				cout << "Ingrese uno de los tipos de noticia propuestos \n";
 				cout << endl;
 				n1 = 1;
 			}
@@ -162,44 +161,56 @@ int main()
 
 	cout << "Noticias de Actualidad: " << sumA << endl;
 
-	cout << "Noticias de Entrenimiento: " << sumE << endl;
+	cout << "Noticias de Entretenimiento: " << sumE << endl;
 
 
-	if (sumMad >= sumMan && sumMad >= sumTar && sumMad >= sumNoc)
+	if (sumMad > sumMan && sumMad > sumTar && sumMad > sumNoc)
 	{
-		cout << "En la MADRUGADA se publicaron mas noticias" << endl;
+		cout << "En la MADRUGADA se produjeron mas emergencias" << endl;
+	}
+	else
+	{
+		if (sumMan > sumMad && sumMad > sumTar && sumMan > sumNoc)
+		{
+			cout << "En la MANIANA se produjeron mas emergencias" << endl;
+		}
+		else
+		{
+			if (sumTar > sumMad && sumTar >= sumMan && sumTar > sumNoc)
+			{
+				cout << "En la TARDE se produjeron mas emergencias" << endl;
+			}
+			else
+			{
+				if (sumNoc > sumMad && sumNoc > sumMan && sumNoc > sumTar)
+				{
+					cout << "En la NOCHE se produjeron mas emergencias" << endl;
+				}
+				else
+				{
+					cout << "No se puede determinar que momento del dia predomina debido a que dos o mas de los altos valores poseen el mismo numero\n";
+				}
+			}
+		}
 	}
 
-	if (sumMan >= sumMad && sumMad >= sumTar && sumMan >= sumNoc)
-	{
-		cout << "En la MANIANA se publicaron mas noticias" << endl;
-	}
-
-	if (sumTar >= sumMad && sumTar >= sumMan && sumTar >= sumNoc)
-	{
-		cout << "En la TARDE se publicaron mas noticias" << endl;
-	}
-
-	if (sumNoc >= sumMad && sumNoc >= sumMan && sumNoc >= sumTar)
-	{
-		cout << "En la NOCHE se publicaron mas noticias" << endl;
-	}
 
 
-	if (sumExt > sumNac)
+	if (sumNac < sumExt)
 	{
-		cout << "Predominan las noticias del Extranjero";
+		cout << "Predominan las noticias de origen Extranjero";
 	}
-	if (sumExt == sumNac)
-		cout << "Predominan ambas noticias";
+	if (sumNac == sumExt)
+	{
+		cout << "Predominan ambas emergencias";
 	}
 
 	if (sumNac > sumExt)
 	{
-		cout << "Predominan las noticias Nacionales";
+		cout << "Predominan las noticias de origen Nacional";
 	}
 
 
-
 	_getch();
+
 }

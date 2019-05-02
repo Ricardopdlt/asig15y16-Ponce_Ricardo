@@ -166,25 +166,36 @@ int main()
 	cout << "Emergencia Radioactiva: " << sumRa << endl;
 
 
-	if (sumMad >= sumMan && sumMad >= sumTar && sumMad >= sumNoc)
+	if (sumMad > sumMan && sumMad > sumTar && sumMad > sumNoc)
 	{
 		cout << "En la MADRUGADA se produjeron mas emergencias" << endl;
 	}
-
-	if (sumMan >= sumMad && sumMad >= sumTar && sumMan >= sumNoc)
+	else
 	{
-		cout << "En la MANIANA se produjeron mas emergencias" << endl;
+		if (sumMan > sumMad && sumMad > sumTar && sumMan > sumNoc)
+		{
+			cout << "En la MANIANA se produjeron mas emergencias" << endl;
+		}
+		else
+		{
+			if (sumTar > sumMad && sumTar >= sumMan && sumTar > sumNoc)
+			{
+				cout << "En la TARDE se produjeron mas emergencias" << endl;
+			}
+			else
+			{
+				if (sumNoc > sumMad && sumNoc > sumMan && sumNoc > sumTar)
+				{
+					cout << "En la NOCHE se produjeron mas emergencias" << endl;
+				}
+				else
+				{
+					cout << "No se puede determinar que momento del dia predomina debido a que dos o mas de los altos valores poseen el mismo numero\n";
+				}
+			}
+		}
 	}
 
-	if (sumTar >= sumMad && sumTar >= sumMan && sumTar >= sumNoc)
-	{
-		cout << "En la TARDE se produjeron mas emergencias" << endl;
-	}
-
-	if (sumNoc >= sumMad && sumNoc >= sumMan && sumNoc >= sumTar)
-	{
-		cout << "En la NOCHE se produjeron mas emergencias" << endl;
-	}
 
 
 	if (sumNat < sumInt)
