@@ -37,7 +37,7 @@ int main()
 	{
 		cout << "-------------------------------------------------------------------------------- \n";
 		cout << endl;
-		printf("Ingrese el lugar de ingreso (L: Lima, B: Otra region, C: Otro pais): ");
+		printf("Ingrese el lugar de ingreso (A: Lima, B: Otra region, C: Otro pais): ");
 		cin >> lugar;
 
 		if (toupper(lugar) == 'G')
@@ -48,24 +48,17 @@ int main()
 		{
 			if (toupper(lugar) == 'A' || toupper(lugar) == 'B' || toupper(lugar) == 'C')
 			{
-				switch (toupper(lugar))
+				if (toupper(lugar) == 'A')
 				{
-
-				case 'A':
-
 					sumA++;
-					n1 = 3;
-
-				case 'B':
-
+				}
+				if (toupper(lugar) == 'B')
+				{
 					sumB++;
-					n1 = 3;
-
-				case 'C':
-
+				}
+				if (toupper(lugar) == 'C')
+				{
 					sumC++;
-					n1 = 3;
-
 				}
 
 				do
@@ -171,26 +164,35 @@ int main()
 	cout << "Otro pais: " << sumC << endl;
 
 
-	if (sumMad >= sumMan && sumMad >= sumTar && sumMad >= sumNoc)
+	if (sumMad > sumMan && sumMad > sumTar && sumMad > sumNoc)
 	{
 		cout << "En la MADRUGADA se produjeron mas ingresos" << endl;
 	}
-
-	if (sumMan >= sumMad && sumMad >= sumTar && sumMan >= sumNoc)
+	else
 	{
-		cout << "En la MANIANA se produjeron mas ingresos" << endl;
+		if (sumMan > sumMad && sumMad > sumTar && sumMan > sumNoc)
+		{
+			cout << "En la MANIANA se produjeron mas ingresos" << endl;
+		}
+		else
+		{
+			if (sumTar > sumMad && sumTar >= sumMan && sumTar > sumNoc)
+			{
+				cout << "En la TARDE se produjeron mas ingresos" << endl;
+			}
+			else
+			{
+				if (sumNoc > sumMad && sumNoc > sumMan && sumNoc > sumTar)
+				{
+					cout << "En la NOCHE se produjeron mas ingresos" << endl;
+				}
+				else
+				{
+					cout << "No se puede determinar que momento del dia predomina debido a que dos o mas de los altos valores poseen el mismo numero\n";
+				}
+			}
+		}
 	}
-
-	if (sumTar >= sumMad && sumTar >= sumMan && sumTar >= sumNoc)
-	{
-		cout << "En la TARDE se produjeron mas ingresos" << endl;
-	}
-
-	if (sumNoc >= sumMad && sumNoc >= sumMan && sumNoc >= sumTar)
-	{
-		cout << "En la NOCHE se produjeron mas ingresos" << endl;
-	}
-
 
 	if (sumCel > sumTab && sumCel > sumCom)
 	{
