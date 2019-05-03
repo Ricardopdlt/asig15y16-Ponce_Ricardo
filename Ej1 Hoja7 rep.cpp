@@ -48,7 +48,7 @@ int main()
 				sumaimp = sumaimp + (-3 * i*x) / (pow(2, i - 1)*pow(a, i - 1));
 			}
 
-			sumaT = sumapar + sumaimp,
+			sumaT = sumapar + sumaimp;
 
 			cout << endl;
 			cout << "La sumatoria es: " << sumaT;
@@ -62,10 +62,12 @@ int main()
 			cout << "ERROR \n";
 			cout << "Ingrese un numero de terminos mayor a 0 y menor a 31\n";
 			cout << endl;
+
+			n1 = 1;
 		}
 
 	} 
-	while (n1 = 1);
+	while (n1 == 1);
 
 
 	_getch();
